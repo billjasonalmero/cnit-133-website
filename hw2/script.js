@@ -1,5 +1,7 @@
 //alert("hello");
 
+/// h o m e w o r k - p a r t 1///
+
 function process() {
   
   var hwAvg = parseInt(document.getElementById("homeworkInput").value);
@@ -9,7 +11,7 @@ function process() {
   
   var sum = parseInt((.5 * hwAvg) + (.2 * midTerm) + (.2 * finalExam) + (.1 * participation));
   
-  document.forms["form"].elements["result"].value = sum;
+  document.forms["formPart1"].elements["result"].value = sum;
 
   if (sum<=69) {
     document.getElementById("studentNote").innerHTML=("Students must retake the course");
@@ -19,4 +21,5 @@ function process() {
   
 }
 
-//document.getElementById("result").value = sum;
+/// h o m e w o r k - p a r t 2///
+
