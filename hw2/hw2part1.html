@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homework 2: Part 1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link href="../styles.css" rel="stylesheet" type="text/css" >
+</head>
+<body>  
+
+  <!--homework part1-->
+  <section class="ui container">
+      <div>
+        <h1>Homework Part 1: Student's Grade</h1>
+        <form name="form">
+          <label>Homework Average</label>
+          <input type="number" id="homeworkInput" name="homework" min="0" max="100"/>
+          </br>
+
+
+          <label>Mid-Term Exam Score</label>
+          <input type="number" id="midTermInput" name="midterm" min="0" max="100"/>
+          </br>
+
+
+          <label>Final Exam Score</label>
+          <input type="number" id="finalExamInput" name="finalexam" min="0" max="100"/>
+          </br>
+
+
+          <label>Participation</label>
+          <input type="number" id="partInput" name="participation" min="0" max="100"/>
+          </br>
+
+
+          <label>Final Result</label>
+          <input type="number" id="resultInput" name="result" readonly />
+          </br>
+
+
+          <input type="button" onclick="process()" value="Submit">
+          <input type="reset" value="Clear Form">
+          
+          
+          <!--display text-->
+          <div><p id="studentNote"></p></div>
+          <!--/display text-->
+        </form>
+      </div>
+    </section>
+  <!--/homework part1-->
+
+
+  <!-- return section-->
+  <div class="ui container">
+
+      <h1>Return to Homework 2</h1>
+      
+      <button class="small ui button">
+        <a href="../hw2/hw2.html">Return</a>
+      </button>
+    </div>
+    <!--/return section-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
