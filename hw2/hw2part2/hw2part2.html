@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Homework 2: Part 1</title>
+  <title>Homework 2: Part 2</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link href="../styles.css" rel="stylesheet" type="text/css" >
+  <link href="../../styles.css" rel="stylesheet" type="text/css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="script.js"></script>
 </head>
 <body>
   
@@ -15,8 +18,86 @@
       <div>
         <h1>Homework Part 2: Sales Commision</h1>
         <form name=formPart2>
+          <label>Salesperson</label>
+          <input type="text">
 
+          <h2>Input the Items sold in each items</h2>
+
+          <label>Item 1:</label>
+          <input type="number">
+          <br>
+
+
+          <label>Item 2:</label>
+          <input type="number">
+          <br>
+
+          <label>Item 3:</label>
+          <input type="number">
+          <br>
+
+          <label>Item 4:</label>
+          <input type="number">
+          <br><br>
+
+          <input type="button" onclick="process()" value="Submit" class="ui button small">
+          <input type="reset" value="Clear Form" class="ui button small" >
         </form>
+      </div>
+      <br>
+
+
+      <div>
+          <table class="ui blue celled structured table">
+              <thead>
+                <tr>
+                <th>Item #</th>
+                <th>Price</th>
+                <th>Number Sold</th>
+                <th>Total</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td data-label="Name">1</td>
+                  <td data-label="Age">$239.99</td>
+                  <td data-label="Job"><input type="number"></td>
+                  <td data-label="Job">total<input type="number"></td>
+                  
+                </tr>
+                <tr>
+                  <td data-label="Name">2</td>
+                  <td data-label="Age">$129.75</td>
+                  <td data-label="Job"><input type="number"></td>
+                  <td data-label="Job">total<input type="number"></td>
+
+                </tr>
+                <tr>
+                  <td data-label="Name">3</td>
+                  <td data-label="Age">$99.95</td>
+                  <td data-label="Job"><input type="number"></td>
+                  <td data-label="Job">total<input type="number"></td>
+
+                </tr>
+                <tr>
+                  <td data-label="Name">4</td>
+                  <td data-label="Age">$350.89</td>
+                  <td data-label="Job"><input type="number"></td>
+                  <td data-label="Job">total<input type="number"></td>
+
+                </tr>
+                <tr>
+                  <td colspan="3" data-label="Job">Total Amount Sold</td>
+                  <td data-label="Job">total<input type="number"></td>
+                  
+
+
+                </tr>
+                <tr>
+                  <td colspan="3" data-label="Job">Total Weekly Earnings</td>
+                  <td data-label="Job">total<input type="number"></td>
+                </tr>
+              </tbody>
+            </table>
       </div>
     </section>
   <!--/homework part1-->
@@ -24,17 +105,40 @@
 
   <!-- return section-->
   <div class="ui container">
-    <h1>Return to Homework 2</h1>
+    <h2>Return to Homework 2</h2>
     
-    <button class="small ui button">
-      <a href="../hw2/hw2.html">Return</a>
-    </button>
+    <!-- <button class="small ui button">
+      <a href="../hw2.html">Return</a>
+    </button> -->
+
+    <a href="../hw2.html" class="ui button small">Return</a>
   </div>
   <!--/return section-->
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="script.js"></script>
-
+  <!--footer-->
+  <footer>
+      <div class="ui container">
+        <h3>Social Media</h3>
+    
+        <button class="ui circular facebook icon button">
+          <i class="facebook icon"></i>
+        </button>
+        <button class="ui circular twitter icon button">
+          <i class="twitter icon"></i>
+        </button>
+        <button class="ui circular linkedin icon button">
+          <i class="linkedin icon"></i>
+        </button>
+        <button class="ui circular google plus icon button">
+          <i class="google plus icon"></i>
+        </button>
+        <button class="ui circular github black icon button">
+          <i class="github icon"></i>
+        </button>
+        <br>
+        <br>
+      </div>
+    </footer>
+    <!--/footer-->
 </body>
 </html>

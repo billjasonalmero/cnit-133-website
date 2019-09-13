@@ -1,4 +1,4 @@
-//alert("hello");
+//alert("hello"); //to check if the link is correct
 
 /// h o m e w o r k - p a r t 1///
 
@@ -14,10 +14,11 @@ function process() {
   document.forms["formPart1"].elements["result"].value = sum;
 
   if (sum<=69) {
-    document.getElementById("studentNote").innerHTML=("Students must retake the course");
+    document.getElementById("studentNote").innerHTML=("Student must retake the course");
   } else {
     document.getElementById("studentNote").innerHTML=("Congrats you pass!");
   }
+  
   
 }
 
