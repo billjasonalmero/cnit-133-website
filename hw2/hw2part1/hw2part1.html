@@ -8,7 +8,63 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
-  <script src="../script.js"></script>
+  <script src="../scriptjs/script1.js"></script>
+  <script>
+  function process() {
+    
+    var hwAvg = parseInt(document.getElementById("homeworkInput").value);
+    var midTerm = parseInt(document.getElementById("midTermInput").value);
+    var finalExam = parseInt(document.getElementById("finalExamInput").value);
+    var participation = parseInt(document.getElementById("partInput").value);
+    var inputValid = true;
+    var finalResult = parseInt((.5 * hwAvg) + (.2 * midTerm) + (.2 * finalExam) + (.1 * participation));
+    
+    document.forms["formPart1"].elements["result"].value = finalResult;
+
+    if (hwAvg < 0 || hwAvg > 100) {
+      document.getElementById("studenNote").innerHTML=("Homework average not valid. (0-100)");
+      inputValid = false;
+    // }
+    // if (midTerm < 0 || midTerm > 100) {
+    //   document.getElementById("studenNote").innerHTML=("Mid-Term average not valid. (0-100)");
+    //   inputValid = false;
+    // }
+    // if (finalExam < 0 || finalExam > 100) {
+    //   document.getElementById("studenNote").innerHTML=("Final Exam average not valid. (0-100)");
+    //   inputValid = false;
+    // }
+    // if (finalExam < 0 || finalExam > 100) {
+    //   document.getElementById("studenNote").innerHTML=("Final Exam average not valid. (0-100)");
+    //   inputValid = false;
+    // }
+
+
+
+
+    // Calculate final grade based on final average
+    if(finalResult > 89){
+      finalGrade = "A";
+    } else if(finalResult > 79){
+      finalGrade = "B";
+    } else if(finalResult > 69){
+      finalGrade = "C";
+    } else if(finalResult > 59){
+      finalGrade = "D";
+    } else if(finalResult < 59){
+      finalGrade = "F";
+    }
+
+
+
+
+    if (sum<=69) {
+      document.getElementById("studentNote").innerHTML=("Student must retake the course. Your Final Grade is" + finalGrade);
+    } else {
+      document.getElementById("studentNote").innerHTML=("Congrats you pass!");
+    }
+    
+}
+  </script>
 </head>
 <body>
   <main>
@@ -50,6 +106,7 @@
 
           <!--display text-->
           <div><p id="studentNote"></p></div>
+          
           <!--/display text-->
         </form>
       </div>

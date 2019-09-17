@@ -23,4 +23,5 @@ function process() {
 }
 
 /// h o m e w o r k - p a r t 2///
+$(document).tooltop();
 

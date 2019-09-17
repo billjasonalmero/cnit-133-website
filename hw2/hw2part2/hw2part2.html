@@ -9,7 +9,7 @@
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script2.js"></script>
 </head>
 <body>
   
@@ -19,12 +19,12 @@
         <h1>Homework Part 2: Sales Commision</h1>
         <form name=formPart2>
           <label>Salesperson</label>
-          <input type="text">
+          <input type="text" title="Please make sure that the sales person's name is spelled correctly">
 
           <h2>Input the Items sold in each items</h2>
 
           <label>Item 1:</label>
-          <input type="number">
+          <input type="number" id="item1input">
           <br>
 
 
@@ -40,7 +40,7 @@
           <input type="number">
           <br><br>
 
-          <input type="button" onclick="process()" value="Submit" class="ui button small">
+          <input type="button" onclick="calculate()" value="Submit" class="ui button small">
           <input type="reset" value="Clear Form" class="ui button small" >
         </form>
       </div>
@@ -60,41 +60,41 @@
                 <tr>
                   <td data-label="Name">1</td>
                   <td data-label="Age">$239.99</td>
-                  <td data-label="Job"><input type="number"></td>
-                  <td data-label="Job">total<input type="number"></td>
+                  <td data-label="Job">numSold#1<input type="number" readonly></td>
+                  <td data-label="Job">total #1<input type="number" readonly></td>
                   
                 </tr>
                 <tr>
                   <td data-label="Name">2</td>
                   <td data-label="Age">$129.75</td>
-                  <td data-label="Job"><input type="number"></td>
-                  <td data-label="Job">total<input type="number"></td>
+                  <td data-label="Job">numSold#2<input type="number" readonly></td>
+                  <td data-label="Job">total #2<input type="number" readonly></td>
 
                 </tr>
                 <tr>
                   <td data-label="Name">3</td>
                   <td data-label="Age">$99.95</td>
-                  <td data-label="Job"><input type="number"></td>
-                  <td data-label="Job">total<input type="number"></td>
+                  <td data-label="Job">numSold#3<input type="number" readonly></td>
+                  <td data-label="Job">total #3<input type="number" readonly></td>
 
                 </tr>
                 <tr>
                   <td data-label="Name">4</td>
                   <td data-label="Age">$350.89</td>
-                  <td data-label="Job"><input type="number"></td>
-                  <td data-label="Job">total<input type="number"></td>
+                  <td data-label="Job">numSold#4<input type="number" readonly></td>
+                  <td data-label="Job">total #4<input type="number" readonly></td>
 
                 </tr>
                 <tr>
-                  <td colspan="3" data-label="Job">Total Amount Sold</td>
-                  <td data-label="Job">total<input type="number"></td>
+                  <td colspan="3" data-label="Job">Total Amount Sold:</td>
+                  <td data-label="Job">total amount sold<input type="number" readonly></td>
                   
 
 
                 </tr>
                 <tr>
-                  <td colspan="3" data-label="Job">Total Weekly Earnings</td>
-                  <td data-label="Job">total<input type="number"></td>
+                  <td colspan="3" data-label="Job">Total Weekly Earnings:</td>
+                  <td data-label="Job">total weekly earnings<input type="number" readonly></td>
                 </tr>
               </tbody>
             </table>
