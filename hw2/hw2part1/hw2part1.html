@@ -8,41 +8,45 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
-  <script src="../scriptjs/script1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-  function process() {
-    
-    var hwAvg = parseInt(document.getElementById("homeworkInput").value);
-    var midTerm = parseInt(document.getElementById("midTermInput").value);
-    var finalExam = parseInt(document.getElementById("finalExamInput").value);
-    var participation = parseInt(document.getElementById("partInput").value);
-    var finalResult = parseInt((.5 * hwAvg) + (.2 * midTerm) + (.2 * finalExam) + (.1 * participation));
-    
-    document.forms["formPart1"].elements["result"].value = finalResult;
+    function calculate() {
+  
+      var hwAvg = parseInt(document.getElementById("homeworkInput").value);
+      var midTerm = parseInt(document.getElementById("midTermInput").value);
+      var finalExam = parseInt(document.getElementById("finalExamInput").value);
+      var participation = parseInt(document.getElementById("partInput").value);
+      var finalResult = parseInt((.5 * hwAvg) + (.2 * midTerm) + (.2 * finalExam) + (.1 * participation));
+      var validInput = true;
 
-    // Calculate final grade based on final average
-    if(finalResult >= 89){
-      finalGrade = "A";
-    } else if(finalResult >= 79){
-      finalGrade = "B";
-    } else if(finalResult >= 69){
-      finalGrade = "C";
-    } else if(finalResult >= 59){
-      finalGrade = "D";
-    } else if(finalResult <= 59){
-      finalGrade = "F";
+      document.forms["formPart1"].elements["result"].value = finalResult;
+
+      // Calculate finalGrade based on finalResult
+      if (finalResult >= 101){
+        finalGrade = "invalid";
+      } else if(finalResult >= 89){
+        finalGrade = "A";
+      } else if(finalResult >= 79){
+        finalGrade = "B";
+      } else if(finalResult >= 69){
+        finalGrade = "C";
+      } else if(finalResult >= 59){
+        finalGrade = "D";
+      } else if(finalResult <= 59){
+        finalGrade = "F";
+      }
+
+
+      //added notes to the student
+      if (finalGrade == "F"|| finalGrade == "D"){
+        document.formPart1.note.value = ("Student must retake the course. Your Final Grade is " + finalGrade); //.form is the form id | .note is the name of the note input | .value is the result
+      }else if(finalGrade == "C" || finalGrade == "B" || finalGrade == "A") {
+        document.formPart1.note.value = ("Congrats you pass! Your Final grade is " + finalGrade);
+      }else {
+        document.formPart1.note.value = ("invalid score (0-100). Please try again")
+      }
     }
 
-
-
-
-    if (finalResult<=69) {
-      document.getElementById("studentNote").innerHTML=("Student must retake the course. Your Final Grade is " + finalGrade);
-    } else {
-      document.getElementById("studentNote").innerHTML=("Congrats you pass! Your Final grade is " + finalGrade);
-    }
-    
-}
   </script>
 </head>
 <body>
@@ -57,35 +61,28 @@
           <input type="number" id="homeworkInput" class="six wide field" name="homework" min="0" max="100"/>
           <br>
 
-
           <label>Mid-Term Exam Score</label>
           <input type="number" id="midTermInput" class="six wide field" name="midterm" min="0" max="100"/>
           <br>
-
 
           <label>Final Exam Score</label>
           <input type="number" id="finalExamInput" class="six wide field" name="finalexam" min="0" max="100"/>
           <br>
 
-
           <label>Participation</label>
           <input type="number" id="partInput" class="six wide field" name="participation" min="0" max="100"/>
           <br>
 
-
           <label>Final Result</label>
           <input type="number" id="resultInput" class="six wide field" name="result" readonly />
           <br>
+
+          <label>Note</label>
+          <input type="text" id="studentNote" name="note" class="six wide field"/>
           <br>
 
-
-          <input type="button" onclick="process()" value="Submit" class="ui button small">
-          <input type="reset" value="Clear Form" class="ui button small" >
-          
-
-          <!--display text-->
-          <div><p id="studentNote"></p></div>
-          <!--/display text-->
+          <input type="button" onclick="calculate()" value="Submit" class="ui button small">
+          <input type="reset" id="clear" onlick="reset()" value="Clear Form" class="ui button small" >
         </form>
       </div>
     </section>
@@ -96,12 +93,7 @@
   <section class="ui container">
     <div>
       <h2>Return to Homework 2</h2>
-    <!--ui semantic template-->
-    <!-- <button class="small ui button" id="returnButton">
-      <a href="../hw2.html">Return</a>
-    </button> -->
-
-    <a href="../hw2.html" class="ui button small">Return</a>
+      <a href="../hw2.html" class="ui button small">Return</a>
   </div>
   </section>
   <!--/return section-->
