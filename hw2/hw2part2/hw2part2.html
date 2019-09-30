@@ -9,112 +9,177 @@
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="script2.js"></script>
+  <script>
+    //-----JQUERY------//  
+    // to check if jQuery is working:
+    // jQuery(document).ready(function($) {
+	  //   alert("js is working");
+    // });
+  </script>
+
+
+  <script>
+    
+    function calculate() {
+      //form
+      var item1 = document.getElementById("item1Input").value;
+      var item2 = document.getElementById("item2Input").value;
+      var item3 = document.getElementById("item3Input").value;
+      var item4 = document.getElementById("item4Input").value;
+
+      
+
+      var item1Total = item1 * 239.99;
+      var item2Total = item2 * 129.75;
+      var item3Total = item3 * 99.95;
+      var item4Total = item4 * 350.89;
+
+      //table
+      $('#item1Total').html("$" + item1Total);
+      $('#item1Sold').html(item1);
+
+      $('#item2Total').html("$" + item2Total);
+      $('#item2Sold').html(item2);
+
+      $('#item3Total').html("$" + item3Total);
+      $('#item3Sold').html(item3);
+
+      $('#item4Total').html("$" + item4Total);
+      $('#item4Sold').html(item4);
+
+      //total, commission, total-week
+      var totalAmount = item1Total + item2Total + item3Total + item4Total;
+      $('#totalAmount').html("$" + totalAmount);
+
+      var commission = totalAmount * .09;
+      $('#commission').html("$" + commission);
+
+
+      var totalSum = 200 + commission + totalAmount;
+      totalSum = totalSum.toFixed(2);
+      $('#totalSum').html("$" + totalSum);
+    }
+
+
+  </script>
+
+
 </head>
 <body>
-  
-  <!--homework part1-->
-  <section class="ui container">
+  <main>
+  <br>
+
+  <!--homework part2-->
+  <section class="ui blue secondary segment container left aligned">
+
+      <!--form section-->
       <div>
         <h1>Homework Part 2: Sales Commision</h1>
-        <form name=formPart2>
+        <form name="formPart2" class="ui form container">
           <label>Salesperson</label>
-          <input type="text" title="Please make sure that the sales person's name is spelled correctly">
+          <input type="text" id="salesPerson" class="six wide field" title="Please make sure that the sales person's name is spelled correctly">
 
           <h2>Input the Items sold in each items</h2>
 
           <label>Item 1:</label>
-          <input type="number" id="item1input">
+          <input type="number" id="item1Input" name="item1Form" class="six wide field">
           <br>
 
 
           <label>Item 2:</label>
-          <input type="number">
+          <input type="number" id="item2Input" name="item2Form" class="six wide field" >
           <br>
 
           <label>Item 3:</label>
-          <input type="number">
+          <input type="number" id="item3Input" name="item3Form" class="six wide field">
           <br>
 
           <label>Item 4:</label>
-          <input type="number">
+          <input type="number" id="item4Input" name="item4Form" class="six wide field">
           <br><br>
 
-          <input type="button" onclick="calculate()" value="Submit" class="ui button small">
-          <input type="reset" value="Clear Form" class="ui button small" >
+          <input type="button" onclick="calculate()" id="submit" value="Submit" class="ui button small">
+          <input type="reset" onclick="clearTable" value="Clear Form" class="ui button small" >
         </form>
       </div>
       <br>
+      <!--/form section-->
 
 
+
+      <!--table section-->
       <div>
           <table class="ui blue celled structured table">
+              <!--table heading-->
               <thead>
                 <tr>
                 <th>Item #</th>
                 <th>Price</th>
                 <th>Number Sold</th>
                 <th>Total</th>
-              </tr></thead>
+                </tr>
+              </thead>
+              <!--table heading-->
               <tbody>
                 <tr>
-                  <td data-label="Name">1</td>
-                  <td data-label="Age">$239.99</td>
-                  <td data-label="Job">numSold#1<input type="number" readonly></td>
-                  <td data-label="Job">total #1<input type="number" readonly></td>
+                  <td>1</td>
+                  <td>$239.99</td>
+                  <td id="item1Sold"></td>
+                  <td id="item1Total"></td>
                   
                 </tr>
                 <tr>
-                  <td data-label="Name">2</td>
-                  <td data-label="Age">$129.75</td>
-                  <td data-label="Job">numSold#2<input type="number" readonly></td>
-                  <td data-label="Job">total #2<input type="number" readonly></td>
+                  <td>2</td>
+                  <td>$129.75</td>
+                  <td id="item2Sold"></td>
+                  <td id="item2Total"></td>
 
                 </tr>
                 <tr>
-                  <td data-label="Name">3</td>
-                  <td data-label="Age">$99.95</td>
-                  <td data-label="Job">numSold#3<input type="number" readonly></td>
-                  <td data-label="Job">total #3<input type="number" readonly></td>
+                  <td>3</td>
+                  <td>$99.95</td>
+                  <td id="item3Sold"></td>
+                  <td id="item3Total"></td>
 
                 </tr>
                 <tr>
-                  <td data-label="Name">4</td>
-                  <td data-label="Age">$350.89</td>
-                  <td data-label="Job">numSold#4<input type="number" readonly></td>
-                  <td data-label="Job">total #4<input type="number" readonly></td>
+                  <td>4</td>
+                  <td>$350.89</td>
+                  <td id="item4Sold"></td>
+                  <td id="item4Total"></td>
 
                 </tr>
                 <tr>
-                  <td colspan="3" data-label="Job">Total Amount Sold:</td>
-                  <td data-label="Job">total amount sold<input type="number" readonly></td>
-                  
-
-
+                  <td colspan="3">Total Amount Sold:</td>
+                  <td id="totalAmount"></td>
                 </tr>
                 <tr>
-                  <td colspan="3" data-label="Job">Total Weekly Earnings:</td>
-                  <td data-label="Job">total weekly earnings<input type="number" readonly></td>
+                  <td colspan="3">9% Commision:</td>
+                  <td id="commission"></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Total Weekly Earnings:</td>
+                  <td id="totalSum"></td>
                 </tr>
               </tbody>
             </table>
       </div>
+      <!--/table section-->
+
     </section>
-  <!--/homework part1-->
+  <!--/homework part2-->
 
 
   <!-- return section-->
   <div class="ui container">
     <h2>Return to Homework 2</h2>
-    
-    <!-- <button class="small ui button">
-      <a href="../hw2.html">Return</a>
-    </button> -->
-
     <a href="../hw2.html" class="ui button small">Return</a>
   </div>
   <!--/return section-->
-  
+
+
+  </main>
+
   <!--footer-->
   <footer>
       <div class="ui container">
@@ -140,5 +205,6 @@
       </div>
     </footer>
     <!--/footer-->
+
 </body>
 </html>
