@@ -34,6 +34,8 @@
         finalGrade = "D";
       } else if(finalResult <= 59){
         finalGrade = "F";
+      }else {
+        finalGrade = "invalid";
       }
 
 
@@ -43,7 +45,7 @@
       }else if(finalGrade == "C" || finalGrade == "B" || finalGrade == "A") {
         document.formPart1.note.value = ("Congrats you pass! Your Final grade is " + finalGrade);
       }else {
-        document.formPart1.note.value = ("invalid score (0-100). Please try again")
+        document.formPart1.note.value = ("invalid score (0-100). Please try again");
       }
     }
 
@@ -82,7 +84,7 @@
           <br><br>
 
           <input type="button" onclick="calculate()" value="Submit" class="ui button small">
-          <input type="reset" id="clear" onlick="reset()" value="Clear Form" class="ui button small" >
+          <input type="reset" id="clear" onclick="reset()" value="Clear Form" class="ui button small" >
         </form>
       </div>
     </section>

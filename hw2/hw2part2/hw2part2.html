@@ -9,14 +9,16 @@
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
-    //-----JQUERY------//  
-    // to check if jQuery is working:
-    // jQuery(document).ready(function($) {
-	  //   alert("js is working");
+  <style>
+  </style>
+  <script> 
+    //-----JQUERY------//  to check if jQuery is working:
+    // $(document).ready(function($) {
+	  //   alert("jQuery is working");
     // });
-  </script>
 
+    $("#salesPerson").toolip();
+  </script>
 
   <script>
     
@@ -35,34 +37,30 @@
       var item4Total = item4 * 350.89;
 
       //table
-      $('#item1Total').html("$" + item1Total);
+      $('#item1Total').html("$" + item1Total.toFixed(2));
       $('#item1Sold').html(item1);
 
-      $('#item2Total').html("$" + item2Total);
+      $('#item2Total').html("$" + item2Total.toFixed(2));
       $('#item2Sold').html(item2);
 
-      $('#item3Total').html("$" + item3Total);
+      $('#item3Total').html("$" + item3Total.toFixed(2));
       $('#item3Sold').html(item3);
 
-      $('#item4Total').html("$" + item4Total);
+      $('#item4Total').html("$" + item4Total.toFixed(2));
       $('#item4Sold').html(item4);
 
       //total, commission, total-week
       var totalAmount = item1Total + item2Total + item3Total + item4Total;
-      $('#totalAmount').html("$" + totalAmount);
+      $('#totalAmount').html("$" + totalAmount.toFixed(2));
 
       var commission = totalAmount * .09;
-      $('#commission').html("$" + commission);
-
+      $('#commission').html("$" + commission.toFixed(2));
 
       var totalSum = 200 + commission + totalAmount;
-      totalSum = totalSum.toFixed(2);
-      $('#totalSum').html("$" + totalSum);
+      totalSum = totalSum;
+      $('#totalSum').html("$" + totalSum.toFixed(2));
     }
-
-
   </script>
-
 
 </head>
 <body>
@@ -77,7 +75,7 @@
         <h1>Homework Part 2: Sales Commision</h1>
         <form name="formPart2" class="ui form container">
           <label>Salesperson</label>
-          <input type="text" id="salesPerson" class="six wide field" title="Please make sure that the sales person's name is spelled correctly">
+          <input type="text" id="salesPerson" class="six wide field" title="Please make sure that the sales person's name is spelled correctly">  <!--title="Please make sure that the sales person's name is spelled correctly"-->
 
           <h2>Input the Items sold in each items</h2>
 
@@ -99,7 +97,7 @@
           <br><br>
 
           <input type="button" onclick="calculate()" id="submit" value="Submit" class="ui button small">
-          <input type="reset" onclick="clearTable" value="Clear Form" class="ui button small" >
+          <input type="reset" onclick="clearTable" value="Clear Form" class="ui button small">
         </form>
       </div>
       <br>

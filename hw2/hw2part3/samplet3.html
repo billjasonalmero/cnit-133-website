@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homework 2: Part 3</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link href="../../styles.css" rel="stylesheet" type="text/css" >
+
+  <script>
+    function Celsius(degreeFinput){
+      var temp = 5/9 * (degreeFinput - 32);
+      return temp;
+    }
+
+    function Fahrenheit(degreeCinput){
+      var temp = (9/5 * degreeCinput) + 32;
+      return temp;
+    }
+
+
+    function calculate() {
+      var temp;
+      var fahrenheit = document.formPart3.fahrenheit.value; //name="farhenheit"
+      var celsius = document.formPart3.celsius.value; //name="celcius"
+      var fahInput = document.getElementById("fahrenheit"); //id="fahrenheit"
+      var celInput = document.getElementById("celsius"); //id="celcuis"
+      
+      
+      //check for valid inputs
+      if ((fahrenheit == "Fahrenheit" && celsius == "Celsius") || (fahrenheit != "Fahrenheit" && celsius != "Celsius")){
+        document.formPart3.note.value = ("Invalid Temperature for either °F or °C. Please try again")
+        fahInput.value = ("Fahrenheit");
+        celInput.value = ("Celsius");
+      } else if ((isNaN(fahrenheit) && (celsius == "Celsius")) || (fahrenheit == "Fahrenheit") && isNaN(celsius)){
+        document.formPart3.note.value = ("Invalid numeric temperature please input. Please try again.")
+        fahInput.value = ("Fahrenheit");
+        celInput.value = ("Celsius");
+      } else {
+        if (fahrenheit != "Fahrenheit"){
+          celInput.value = Celsius(fahrenheit).toFixed(1) + "°C"; //.fixed(1) is added to  1 decimal
+        } else {
+          fahInput.value = Fahrenheit(celsius).toFixed(1) + "°F"; //.fixed(1) is added to  1 decimal
+        }
+      }
+
+
+      function reset(){
+          var fahInput = document.getElementById("fahrenheit");
+          var celInput = document.getElementById("celsius");
+          
+          fahInput.value = ("Fahrenheit");
+          celInput.value = ("Celsius");
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <main>
+  <br>
+  
+    
+    <!--homework part3-->
+    <section class="ui blue secondary segment container left aligned">
+      <div class="ui form container">
+        <h1>Homework Part 3: Temperature Converter</h1>
+        <form name=formPart3>
+
+          <label>Fahrenheit</label>
+          <input type="text" id="fahrenheit" class="six wide field" name="fahrenheit" value="Fahrenheit" onclick="this.select();"> <!--value: °F if if i want to have a text labeled-->
+          <br>
+          
+
+          <label>Celsius</label>
+          <input type="text" id="celsius" class="six wide field" name="celsius" value="Celsius" onclick="this.select();"> <!--value: °C if if i want to have a text labeled-->
+          <br>
+
+          <label>Note:</label>
+          <input type="text" id="note" class="six wide field">
+          <br>
+
+          <input type="button" onclick="calculate()" value="convert" class="ui button small"> <!--value is the name you want to to see in your button-->
+          <input type="reset"  onclick="reset()" value="clear" class="ui button small">
+          
+        </form>
+      </div>
+    </section>
+    <!--/homework part3-->
+
+
+
+  <!-- return section-->
+  <section class="ui container">
+    <div>
+      <h2>Return to Homework 2</h2>
+      <a href="../hw2.html" class="ui button small">Return</a>
+  </div>
+  </section>
+  <!--/return section-->
+  </main>
+
+
+
+   <!--footer-->
+   <footer>
+      <div class="ui container">
+        <h3>Social Media</h3>
+    
+        <button class="ui circular facebook icon button">
+          <i class="facebook icon"></i>
+        </button>
+        <button class="ui circular twitter icon button">
+          <i class="twitter icon"></i>
+        </button>
+        <button class="ui circular linkedin icon button">
+          <i class="linkedin icon"></i>
+        </button>
+        <button class="ui circular google plus icon button">
+          <i class="google plus icon"></i>
+        </button>
+        <button class="ui circular github black icon button">
+          <i class="github icon"></i>
+        </button>
+        <br>
+        <br>
+      </div>
+    </footer>
+    <!--/footer-->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+</body>
+</html>

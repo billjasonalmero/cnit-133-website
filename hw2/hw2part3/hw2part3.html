@@ -4,55 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Homework 2: Part 1</title>
+  <title>Homework 2: Part 3</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
 
-  <script>
-    function Celsius(degreeFinput){
-      var temp = 5/9 * (degreeFinput - 32);
-      return temp;
+  <script type="text/javascript">
+  //fahrenheit to Celcius
+  //type is the onclick button for fahrenheit or celsius
+    function calculate(onclick){
+          var tempInput, theTemp, theCelsius, theFahrenheit;
+          tempInput = document.getElementById("temperature").value
+          theTemp = parseInt(tempInput, 10);
+
+          if(isNaN(tempInput)){
+            document.getElementById("result").innerHTML = "Invalid Input. Please input a numeric value.";
+          }else if(onclick == 'f'){
+            theCelsius = toCelsius(theTemp);
+            document.getElementById("result").innerHTML = theTemp + "&#176; Fahrenheit is equals to " + Math.round(theCelsius) + "&#176; Celsius";
+          }else if(onclick == 'c'){
+            theFahrenheit = toFahrenheit(theTemp);
+            document.getElementById("result").innerHTML = theTemp + "&#176; Celsius is equals to " + Math.round(theFahrenheit) + "&#176; Fahrenheit";
+          }else {
+            document.getElementById("result"),innerHTML = "Please try again";
+          }
     }
 
-    function Fahrenheit(degreeCinput){
-      var temp = (9/5 * degreeCinput) + 32;
-      return temp;
-    }
+		function toFahrenheit(myTemp){
+			var fahrenheit;
 
+			fahrenheit = (9/5 * myTemp) + 32;
+			return fahrenheit;
+		}
 
-    function calculate() {
-      var temp;
-      var fahrenheit = document.formPart3.fahrenheit.value; //name="farhenheit"
-      var celsius = document.formPart3.celsius.value; //name="celcius"
-      var fahInput = document.getElementById("fahrenheit"); //id="fahrenheit"
-      var celInput = document.getElementById("celsius"); //id="celcuis"
-      
-      //check for valid inputs
-      if ((fahrenheit == "Fahrenheit" && celsius == "Celsius") || (fahrenheit != "Fahrenheit" && celsius != "Celsius")){
-        alert("Please enter a valid temperature for either Fahrenheit or Celsius.");
-        fahInput.value = ("Fahrenheit");
-        celInput.value = ("Celsius");
-      } else if ((isNaN(fahrenheit) && (celsius == "Celsius")) || (fahrenheit == "Fahrenheit") && isNaN(celsius)){
-        alert("Please enter a numeric temperature.");
-        fahInput.value = ("Fahrenheit");
-        celInput.value = ("Celsius");
-      } else {
-        if (fahrenheit != "Fahrenheit"){
-          celInput.value = Celsius(fahrenheit).toFixed(1) + "°C"; //.fixed(1) is added to  1 decimal
-        } else {
-          fahInput.value = Fahrenheit(celsius).toFixed(1) + "°F"; //.fixed(1) is added to  1 decimal
-        }
-      }
+		function toCelsius(myTemp){
+			var celsius;
 
-
-      function reset(){
-          var fahInput = document.getElementById("fahrenheit");
-          var celInput = document.getElementById("celsius");
-          
-          fahInput.value = ("Fahrenheit");
-          celInput.value = ("Celsius");
-      }
-    }
+			celsius = 5/9 * (myTemp - 32);
+			return celsius;
+		}
 
   </script>
 </head>
@@ -67,17 +56,18 @@
         <h1>Homework Part 3: Temperature Converter</h1>
         <form name=formPart3>
 
-          <label>Fahrenheit</label>
-          <input type="text" id="fahrenheit" class="six wide field" name="fahrenheit" value="Fahrenheit" onclick="this.select();"> <!--value: °F if if i want to have a text labeled-->
-          <br>
+          <label>Temperature</label>
+          <input type="number" id="temperature" class="six wide field" name="temperature" value="Temperature" >
+          <br><br>
           
 
-          <label>Celsius</label>
-          <input type="text" id="celsius" class="six wide field" name="celsius" value="Celsius" onclick="this.select();"> <!--value: °C if if i want to have a text labeled-->
-          <br>
+          <input type="button" id="toCel" onclick="calculate('f')" value="Fahrenheit to Celsius" class="ui button small">
+          <input type="button" id="toFah" onclick="calculate('c')" value="Celsius to Fahrenheit" class="ui button small">
 
-          <input type="button" onclick="calculate()" value="convert" class="ui button small"> <!--value is the name you want to to see in your button-->
-          <input type="reset"  onclick="reset()" value="clear" class="ui button small">
+
+
+          <input type="reset"  onclick="window.location.reload();" value="Reset" class="ui button small">
+          <h2 id="result" name="result"></h2>
           
         </form>
       </div>
