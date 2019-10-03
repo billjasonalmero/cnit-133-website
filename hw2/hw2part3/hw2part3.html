@@ -12,21 +12,21 @@
   //fahrenheit to Celcius
   //type is the onclick button for fahrenheit or celsius
     function calculate(onclick){
-          var tempInput, theTemp, theCelsius, theFahrenheit;
-          tempInput = document.getElementById("temperature").value
-          theTemp = parseInt(tempInput, 10);
+      var tempInput, theTemp, theCelsius, theFahrenheit;
+      tempInput = document.getElementById("temperature").value
+      theTemp = parseInt(tempInput, 10);
 
-          if(isNaN(tempInput)){
-            document.getElementById("result").innerHTML = "Invalid Input. Please input a numeric value.";
-          }else if(onclick == 'f'){
-            theCelsius = toCelsius(theTemp);
-            document.getElementById("result").innerHTML = theTemp + "&#176; Fahrenheit is equals to " + Math.round(theCelsius) + "&#176; Celsius";
-          }else if(onclick == 'c'){
-            theFahrenheit = toFahrenheit(theTemp);
-            document.getElementById("result").innerHTML = theTemp + "&#176; Celsius is equals to " + Math.round(theFahrenheit) + "&#176; Fahrenheit";
-          }else {
-            document.getElementById("result"),innerHTML = "Please try again";
-          }
+      if(isNaN(tempInput)){
+        document.getElementById("result").innerHTML = "Invalid Input. Please input a numeric value.";
+      }else if(onclick == 'f'){
+        theCelsius = toCelsius(theTemp);
+        document.getElementById("result").innerHTML = theTemp + "&#176; Fahrenheit is equals to " + theCelsius.toFixed(0) + "&#176; Celsius";
+      }else if(onclick == 'c'){
+        theFahrenheit = toFahrenheit(theTemp);
+        document.getElementById("result").innerHTML = theTemp + "&#176; Celsius is equals to " + theFahrenheit.toFixed(0) + "&#176; Fahrenheit";
+      }else {
+        document.getElementById("result"),innerHTML = "Please try again";
+      }
     }
 
 		function toFahrenheit(myTemp){
@@ -60,11 +60,8 @@
           <input type="number" id="temperature" class="six wide field" name="temperature" value="Temperature" >
           <br><br>
           
-
           <input type="button" id="toCel" onclick="calculate('f')" value="Fahrenheit to Celsius" class="ui button small">
           <input type="button" id="toFah" onclick="calculate('c')" value="Celsius to Fahrenheit" class="ui button small">
-
-
 
           <input type="reset"  onclick="window.location.reload();" value="Reset" class="ui button small">
           <h2 id="result" name="result"></h2>

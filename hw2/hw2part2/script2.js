@@ -108,6 +108,21 @@ jQuery(document).ready(function($) {
 }
 
 
+///// code not working
+if (item1 < 0 || isNaN(item1)){
+  $("result").html("Enter valid number of sales."); 
+}
+if (item2 < 0 || isNaN(item2)){
+  $("result").html("Enter valid number of sales."); 
+}
+if (item3 < 0 || isNaN(item3)){
+  $("result").html("Enter valid number of sales."); 
+}
+if (item4 < 0 || isNaN(item4)){
+  $("result").html("Enter valid number of sales."); 
+}
+
+
 ///// part 3
 function Celsius(degreeF){
 	var temp = 5/9 * (degreeF - 32);

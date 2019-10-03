@@ -58,3 +58,16 @@ function process() {
     document.getElementById("studentNote").innerHTML=("Invalid Input (0-100). Please try again.");
   }
 }
+
+
+
+if(hwAvg <= 0 || midTerm <= 0 || finalExam <=0 || participation <= 0){
+  document.formPart1.note.value = ("invalid input (0-100). Please try again");
+}else if (finalGrade == "F"|| finalGrade == "D"){
+  document.formPart1.note.value = ("Student must retake the course. Your Final Grade is " + finalGrade); //.form is the form id | .note is the name of the note input | .value is the result
+}else if(finalGrade == "C" || finalGrade == "B" || finalGrade == "A"){
+  document.formPart1.note.value = ("Congrats you pass! Your Final grade is " + finalGrade);
+}else{
+  document.formPart1.note.value = ("invalid score (0-100). Please try again");
+
+}

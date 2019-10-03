@@ -21,8 +21,9 @@
 
       document.forms["formPart1"].elements["result"].value = finalResult;
 
+      
       // Calculate finalGrade based on finalResult
-      if (finalResult >= 101){
+      if (finalResult >= 101 || finalResult <= 0){
         finalGrade = "invalid";
       } else if(finalResult >= 89){
         finalGrade = "A";
@@ -40,15 +41,17 @@
 
 
       //added notes to the student
-      if (finalGrade == "F"|| finalGrade == "D"){
+
+      if(finalGrade == "invalid"){
+        document.formPart1.note.value = ("invalid input (0-100). Please try again");
+      }else if (finalGrade == "F"|| finalGrade == "D"){
         document.formPart1.note.value = ("Student must retake the course. Your Final Grade is " + finalGrade); //.form is the form id | .note is the name of the note input | .value is the result
-      }else if(finalGrade == "C" || finalGrade == "B" || finalGrade == "A") {
+      }else if(finalGrade == "C" || finalGrade == "B" || finalGrade == "A"){
         document.formPart1.note.value = ("Congrats you pass! Your Final grade is " + finalGrade);
-      }else {
+      }else{
         document.formPart1.note.value = ("invalid score (0-100). Please try again");
       }
     }
-
   </script>
 </head>
 <body>

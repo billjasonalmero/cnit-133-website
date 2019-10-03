@@ -6,22 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Homework 2: Part 2</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel = "stylesheet" href = "https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css">
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <style>
-  </style>
-  <script> 
-    //-----JQUERY------//  to check if jQuery is working:
-    // $(document).ready(function($) {
-	  //   alert("jQuery is working");
-    // });
-
-    $("#salesPerson").toolip();
-  </script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <script>
-    
+    //-----JQUERY------//  to check if jQuery is working:
+    // $(document).ready(function($) {
+    //   alert("jQuery is working");
+    // });
+
+    //jQuerytooltip
+    $( function() {
+      $("#salesPerson").tooltip();
+    } );
+  
+    //commision calculator
     function calculate() {
       //form
       var item1 = document.getElementById("item1Input").value;
@@ -29,8 +31,14 @@
       var item3 = document.getElementById("item3Input").value;
       var item4 = document.getElementById("item4Input").value;
 
-      
 
+      //check if the input is valid or not
+      if(item1 <=0 || item2 <=0 || item3 <=0 || item4 <=0){
+        var validator = document.getElementById("result").innerHTML = "Invalid input no negative number. Please try again! ";
+        return (validator);  
+      }
+      
+      
       var item1Total = item1 * 239.99;
       var item2Total = item2 * 129.75;
       var item3Total = item3 * 99.95;
@@ -75,7 +83,7 @@
         <h1>Homework Part 2: Sales Commision</h1>
         <form name="formPart2" class="ui form container">
           <label>Salesperson</label>
-          <input type="text" id="salesPerson" class="six wide field" title="Please make sure that the sales person's name is spelled correctly">  <!--title="Please make sure that the sales person's name is spelled correctly"-->
+          <input type="text" id="salesPerson" name="salesPerson" class="six wide field" title="Please make sure that the sales person's name is spelled correctly">  <!--title="Please make sure that the sales person's name is spelled correctly"-->
 
           <h2>Input the Items sold in each items</h2>
 
@@ -97,8 +105,9 @@
           <br><br>
 
           <input type="button" onclick="calculate()" id="submit" value="Submit" class="ui button small">
-          <input type="reset" onclick="clearTable" value="Clear Form" class="ui button small">
+          <input type="reset" onclick="window.location.reload();" value="Clear Form" class="ui button small">
         </form>
+        <h2 id="result" name="result"></h2>
       </div>
       <br>
       <!--/form section-->
