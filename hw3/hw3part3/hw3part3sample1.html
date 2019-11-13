@@ -11,22 +11,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
 
 
-  <script type="text/javascript">
-  //trying out getElementById option
-  function onChangeEvent() {
-    var site1 = document.getElementById("idForm1").value;
-    var windowPop1 = window.open(site1);
-    return windowPop1;
+  <script>
+    //-----JQUERY------//  //---to check if jQuery is working---//:
+    // $(document).ready(function($) {
+    //   alert("jQuery is working");
+    // });
+  
+  //selectIndex
+  function event() {
+    var site = form.hw3form.options[form.hw3form.selectedIndex].value; //selected index is part of the option elements;
+    var windowPop = window.open(site);
+    return windowPop;
   }
 
-  //trying out selectedIndex option
-  function onClickEvent() {
-    var site2 = form2.form2Site.options[form2.form2Site.selectedIndex].value; //selected index is part of the option elements;
-    var windowPop2 = window.open(site2); //used .open to create a new window tab
-  }
   </script>
-
-
 </head>
 <body>
   <br>
@@ -36,8 +34,8 @@
     <!-- onChange event section -->
     <div>
     <h3>Select an option using onChange event</h3>
-    <form name="form1">
-      <select id="idForm1" onchange="onChangeEvent()">
+    <form name="form">
+      <select name="hw3form" id="idForm1" onchange="event(this,form)">
         <option>Select Site</option>
         <option value="https://nodejs.org/en/">Nodejs</option>
         <option value="https://reactjs.org/">Reactjs</option>
@@ -53,15 +51,15 @@
     <!-- onClick event section -->
     <div>
     <h3>Select an option using onClick event</h3>
-    <form name="form2">
-      <select name="form2Site" id="idForm2">
+    <form name="form">
+      <select name="hw3form" id="idForm2">
         <option>Select Site</option>
         <option value="https://nodejs.org/en/">Nodejs</option>
-        <option value="https://reactjs.org/">Reactjs</option>
-        <option value="https://angularjs.org/">Angularjs</option>
-        <option value="https://vuejs.org/">Vuejs</option>
+        <option value="https://twitter.com/">Reactjs</option>
+        <option value="https://www.linkedin.com/">Angularjs</option>
+        <option value="https://github.com/">Vuejs</option>
       </select>&emsp;
-      <input type="submit" value="Surf Up" onclick="onClickEvent()" class="ui button small">
+      <input type="submit" value="Surf Up" onclick="event()" class="ui button small">
     </form>
     </div>
     <br>

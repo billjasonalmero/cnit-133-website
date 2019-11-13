@@ -7,29 +7,36 @@
   <title>Homework 3: Part 4</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
 
-  <script>
+  <!--*
+      *
+      *
+      *
+      IT WORKS!!!
+      *
+      *
+      *
+      *-->
+  <script type="text/javascript">
     //state array
-    var stateInput = [
-      ["AL","AK","AZ","AR","CA","CO"],
-      ["Alabama","Alaska","Arizona","Arkansas","California","Colorado"],
-      ["Montgomery","Juneau","Phoenix","Little Rock","Sacramento","Denver"],
-      ["4,369,862","619,500","4,778,332","2,551,373","3,145,121","4,056,133"]
-    ]
+    var stateInput = new Array();
+		stateInput[0] = new Array("AL","AK","AZ","AR","CA","CO");
+		stateInput[1] = new Array("Alabama","Alaska","Arizona","Arkansas","California","Colorado");
+		stateInput[2] = new Array("Montgomery","Juneau","Phoenix","Little Rock","Sacramento","Denver");
+		stateInput[3] = new Array("4,369,862","619,500","4,778,332","2,551,373","3,145,121","4,056,133");
 
     //converting the input to an uppercase
-    function stateArray(inputFormValue) {
+    function stateArray(request) {
       //converting the state abbr. to uppercase (ex: al --> AL)
 			for (var i = 0; i < stateInput[0].length; i++) {
-				if (stateInput[0][i] == inputFormValue.toUpperCase()) {
+				if (stateInput[0][i] == request.toUpperCase()) {
 					return i;
 				}
 			}
       //converting the statename to uppercase (ex:Alabama --> ALABAMA)
 			for (var i = 0; i < stateInput[1].length; i++) {
-				if (stateInput[1][i].toUpperCase() == inputFormValue.toUpperCase()) {
+				if (stateInput[1][i].toUpperCase() == request.toUpperCase()) {
 					return i;
 				}
 			}
@@ -38,10 +45,10 @@
     
     //validating the input entered
     function validate() {
-			var inputForm = document.getElementById("inputForm").value;
+			var request = document.getElementById("request").value;
       console.log(index);
-			var index = stateArray(inputForm);
-			if (inputForm == "") {
+			var index = stateArray(request);
+			if (request == "") {
 				var errorState00 = document.getElementById("result").innerHTML = "Invalid Input. Please enter a State.";
         return (errorState00);
 			}else if (index == -1) {
@@ -73,34 +80,17 @@
       <h3>Input State Abbreviation</h3>
       <div>
       <form>
-        <input type="text" name="inputForm" id="inputForm">
+        <input type="text" name="request" id="request">
         <input type="button" value="Submit" onclick="validate()">
         <input type="reset" value="Reset" onclick="location.reload();">
       </form>
       </div>
     </section>
-    <!-- /form section -->
+  <!-- /form section -->
 
-  <h3 id="result">Output Field</h3><br><br>
-
-
-  <!-- instruction section -->
-  <section>
-    <h3>Instructions Field</h3>
-    <div class="ui styled accordion">
-      <div class="active title">
-        <p><i class="dropdown icon"></i>Instruction:</p>
-      </div>
-      <div class="content">
-        <p>Please enter a state abbreviation or state name in the textbox.</p>
-      </div>
-    </div>
-  </section>
-  <!-- /instruction section -->
-
-
-  </section>
+  <h3 id="result"></h3>
   <!-- /window section -->
+  </section>
 
   <!-- return section-->
   <section class="ui container">
@@ -136,13 +126,8 @@
         <br>
         <br>
       </div>
-  </footer>
-  <!--/footer-->
+    </footer>
+    <!--/footer-->
 
-  <!-- script in order for the instruction section to work
-    -- via: https://www.youtube.com/watch?v=ptR42t1R-3g -->
-  <script>
-    $('.ui.accordion').accordion();
-  </script>
 </body>
 </html>

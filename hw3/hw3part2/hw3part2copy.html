@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homework 3: Part 2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link href="../../styles.css" rel="stylesheet" type="text/css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  <style>
+    #collegeTeam {
+      width: 20%;
+    }
+  </style>
+
+
+  <script>
+  function validate() {
+  var valid = true;
+  //var errorMessage = "";
+
+  if (document.myform.firstName.value == "") {
+    document.getElementById("errorName").innerHTML = "Please add Name.";
+    valid = false;
+  }
+
+  if ((!document.myform.gender[0].checked) && (!document.myform.gender[1].checked) && (!document.myform.gender[2].checked)) {
+    document.getElementById("errorGender").innerHTML = "Please select a Gender.";
+    valid = false;
+  }
+
+  if ((!document.myform.university[0].checked) && (!document.myform.university[1].checked) && (!document.myform.university[2].checked) && (!document.myform.university[3].checked)) {
+    document.getElementById("errorTeam").innerHTML = "Please select one or more Teams.";
+    valid = false;
+  }
+
+  if (document.getElementById("stateYou").value == "select") {
+    document.getElementById("errorState").innerHTML = "Please select a State.";
+    valid = false;
+  }
+
+  return valid;
+}
+
+
+  </script>
+</head>
+
+
+<body>
+  <main>
+    <br>
+    <section class="ui blue secondary segment container">
+      <div class="ui form container">
+        <h2>Homework 3 Part 1: Validation Script</h2>
+
+        <!-- form section -->
+        <form name="myform" method="POST" onsubmit="return validate();">
+
+          <label>First Name:</label>
+          <input type="text" id="formName" name="firstName" class="six wide field">
+          <br><br>
+          
+          <label>Gender:</label>
+          <input type="radio" name="gender" value="male">Male &emsp;&emsp;&emsp;
+          <input type="radio" name="gender" value="female">Female
+          <br><br>
+
+          <label id="collegeTeam">Your PAC-12 College Team(s):</label><br>
+          <input type="checkbox" name="university" value="Cal Bears"/>Cal Bears<br>
+          <input type="checkbox" name="university" value="UCLA Bruins"/>UCLA Bruins<br>
+          <input type="checkbox" name="university" value="Stanford Cardinal"/>Stanford Cardinal<br>
+          <input type="checkbox" name="university" value="USC Trojans"/>USC Trojans<br>
+          <br>
+
+          <label>Your State:</label>
+          <select name="state" id="stateYou" class="six wide field">
+            <option value="select" selected>Please select state
+            <option value="California">California
+            <option value="Washington">Washington
+            <option value="Oregon">Oregon
+          </select>
+          <br>
+
+          <input type="submit" value="Send Form">
+          <input type="reset" value="Clear Form">
+          <br><br>
+        </form>
+        <!-- /form section -->
+
+
+        <!-- validation section -->
+        <section>
+          <div>
+            <p id="errorName"></p>
+            <p id="errorGender"></p>
+            <p id="errorTeam"></p>
+            <p id="errorState"></p>
+          </div>
+        </section>
+        <!-- /validation section -->
+
+
+      </div>
+    </section>
+    <br><br>
+  
+
+  <!-- return section-->
+  <section class="ui container">
+    <div>
+      <h2>Return to Homework 3</h2>
+      <a href="../hw3.html" class="ui button small">Return</a>
+  </div>
+  </section>
+  <!--/return section-->
+  </main>
+
+
+   <!--footer-->
+   <footer>
+      <div class="ui container">
+        <h3>Social Media</h3>
+    
+        <button class="ui circular facebook icon button">
+          <i class="facebook icon"></i>
+        </button>
+        <button class="ui circular twitter icon button">
+          <i class="twitter icon"></i>
+        </button>
+        <button class="ui circular linkedin icon button">
+          <i class="linkedin icon"></i>
+        </button>
+        <button class="ui circular google plus icon button">
+          <i class="google plus icon"></i>
+        </button>
+        <button class="ui circular github black icon button">
+          <i class="github icon"></i>
+        </button>
+        <br>
+        <br>
+      </div>
+    </footer>
+    <!--/footer-->
+
+</body>
+</html>

@@ -7,54 +7,183 @@
   <title>Homework 3: Part 2</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="../../styles.css" rel="stylesheet" type="text/css" >
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  <style>
+    tbody  td  label {
+      width: 26%;
+    }
+    .statusText {
+      height: 10px;
+    }
+  </style>
   <script>
-
+    function validate() {
+      var valid = true;
+      //name section
+      if (document.myform.name.value == "") {
+        document.getElementById("statusName").innerHTML = "<td colspan='2'><p class='errorMsg'>Please enter a Name.</p></td>";
+        valid = false;
+      }
+      //gender section
+      if ((!document.myform.gender[0].checked) && (!document.myform.gender[1].checked)) {
+        document.getElementById("statusGender").innerHTML = "<td colspan='2'><p class='errorMsg'>Please select a Gender.</p></td>";
+        valid = false;
+      }
+      //team section
+      if ((!document.myform.team[0].checked) && (!document.myform.team[1].checked) && (!document.myform.team[2].checked) && (!document.myform.team[3].checked)) {
+        document.getElementById("statusTeam").innerHTML = "<td colspan='2'><p class='errorMsg'>Please select one or more Teams.</p></td>";
+        valid = false;
+      }
+      //your state section
+      if (document.getElementById("home").value == "select") {
+        document.getElementById("statusState").innerHTML = "<td colspan='2'><p class='errorMsg'>Please select your State.</p></td>";
+        valid = false;
+      }
+      return valid;
+    }
   </script>
 </head>
+
+
 <body>
   <main>
+  <br>
+    <section class="ui blue secondary segment container">
+      <div class="ui form container">
+        <h2>Homework 3 Part 2: Validation Script</h2>
+
+        <!-- form section -->
+        <form id="idform" name="myform" method="POST" action="mailto:bill@test.com" onsubmit="return validate();">
+        <table class="ui table" id="tablestyle">
+          <tbody>
+
+            <!-- name section -->
+            <tr>
+              <td><label>Name:</label></td>
+              <td><input type="text" name="name" id="name"></td>
+            </tr>
+            <!-- /name section -->
 
 
-  <!-- return section-->
-  <section class="ui container">
-    <div>
-      <h2>Return to Homework 3</h2>
-      <a href="../hw3.html" class="ui button small">Return</a>
-  </div>
-  </section>
-  <!--/return section-->
+            <!-- gender section -->
+            <tr>
+              <td><label>Gender:</label></td>
+              <td>
+                <input type="radio" name="gender" value="male"> Male &emsp;&emsp;&emsp;
+                <input type="radio" name="gender" value="female"> Female
+              </td>
+            </tr>
+            <!-- /gender section -->
+
+
+            <!-- college section -->
+            <tr>
+              <td><label>College Team(s):</label></td>
+              <td>
+                <input type="checkbox" name="team" value="cal"> UC CAL Bears<br>
+                <input type="checkbox" name="team" value="bruins"> UCLA Bruins<br>
+                <input type="checkbox" name="team" value="trojans"> USC Trojans<br>
+                <input type="checkbox" name="team" value="cardinals"> Stanford Cardinals<br>
+              </td>
+            </tr>
+            <!-- /college section -->
+
+
+            <!-- state section -->
+            <tr>
+              <td><label>Your State:</label></td>
+              <td>
+                <select name="home" id="home" class="ui fluid dropdown">
+                  <option value="select">Please Select State:</option>
+                  <option value="CA">California</option>
+                  <option value="OR">Oregon</option>
+                  <option value="WA">Washington</option>
+                  <option value="NY">New York</option>
+                </select>
+              </td>
+            </tr>
+            <!-- /state section -->
+
+
+            <tr>
+              <td><input type="submit" value="Submit" class="ui small button"></td>
+              <td><input type="reset" onclick="window.location.reload();" value="Reset" class="ui small button"></td>
+            </tr>
+
+            <tr id="statusName" class="statusText"><td colspan='2'></td></tr>
+            <tr id="statusGender" class="statusText"><td colspan='2'></td></tr>
+            <tr id="statusTeam" class="statusText"><td colspan='2'></td></tr>
+            <tr id="statusState" class="statusText"><td colspan='2'></td></tr>
+
+          </tbody>
+        </table>
+        </form><br><br>
+        <!-- /form section -->
+
+      <!-- instruction section -->
+      <section>
+        <h3>Instructions Field</h3>
+        <div class="ui styled accordion">
+          <div class="active title">
+            <p><i class="dropdown icon"></i>Instruction:</p>
+          </div>
+          <div class="content">
+            <p>Please completely fill out the form. In order to send the data via email.</p>
+          </div>
+        </div>
+      </section>
+      <!-- /instruction section -->
+        
+      </div>
+    </section>
+    <br><br>
+  
+
+    <!-- return section-->
+    <section class="ui container">
+      <div>
+        <h2>Return to Homework 3</h2>
+        <a href="../hw3.html" class="ui button small">Return</a>
+      </div>
+    </section>
+    <!--/return section-->
   </main>
 
 
+  <!--footer-->
+  <footer>
+    <div class="ui container">
+      <h3>Social Media</h3>
 
-   <!--footer-->
-   <footer>
-      <div class="ui container">
-        <h3>Social Media</h3>
-    
-        <button class="ui circular facebook icon button">
-          <i class="facebook icon"></i>
-        </button>
-        <button class="ui circular twitter icon button">
-          <i class="twitter icon"></i>
-        </button>
-        <button class="ui circular linkedin icon button">
-          <i class="linkedin icon"></i>
-        </button>
-        <button class="ui circular google plus icon button">
-          <i class="google plus icon"></i>
-        </button>
-        <button class="ui circular github black icon button">
-          <i class="github icon"></i>
-        </button>
-        <br>
-        <br>
-      </div>
-    </footer>
-    <!--/footer-->
+      <button class="ui circular facebook icon button">
+        <i class="facebook icon"></i>
+      </button>
+      <button class="ui circular twitter icon button">
+        <i class="twitter icon"></i>
+      </button>
+      <button class="ui circular linkedin icon button">
+        <i class="linkedin icon"></i>
+      </button>
+      <button class="ui circular google plus icon button">
+        <i class="google plus icon"></i>
+      </button>
+      <button class="ui circular github black icon button">
+        <i class="github icon"></i>
+      </button>
+      <br>
+      <br>
+    </div>
+  </footer>
+  <!--/footer-->
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  <!-- script in order for the instruction section to work
+  -- via: https://www.youtube.com/watch?v=ptR42t1R-3g -->
+  <script>
+    $('.ui.accordion').accordion();
+  </script>
 </body>
 </html>
+
+
+<!-- action="mailto:sampleTest@mail.ccsf.edu" -->
