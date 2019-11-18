@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  background-color: mistyrose;
+  line-height: 1.5;
+  height: 100%;
+  display: flex; /*used flexbox to make to footer stay in the bottom of any screen sizes*/
+  flex-direction: column;
+  
+}
+
+main {
+  flex:1; 
+}
+
+footer {
+  background-color: gainsboro;
+  position: relative;
+  margin: 10px;
+
+}
+
+
+/* homework 2: part 1-2-3 */
+/* homework 3: part 2 */
+label {
+  width: 15%;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
