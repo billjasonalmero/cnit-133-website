@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homework 4: Part 2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link href="../../styles.css" rel="stylesheet" type="text/css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+
+<style>
+  #fontSize {
+    display: inline;
+  }
+</style>
+<script>
+  $(() => {
+    //background color function
+    $("#attributeForm :radio").click(function () {
+        $("#sampleText").css($(this).attr("name"), $(this).val());
+    });
+    //font-size function
+    $("#fontSize").change(function () {
+        $("#sampleText").css($(this).attr("name"), $(this).val());
+    });
+    //font-display function
+    $("#attributeForm :button").click(function () {
+      if("#fontDefault") {
+        $("#sampleText").css("font-family", "Arial, Helvetica, sans-serif");
+      }
+      $("#sampleText").css($(this).attr("name"), $(this).val());
+    })
+  });
+</script>
+</head>
+
+<body>
+  <br>
+  <main>
+    <!-- window section -->
+    <section class="ui blue secondary segment container">
+      <div class="ui form container">
+      <h2>Homework 4 Part 2: Formatting Page Layout</h2>
+      <!-- form section -->
+      <section>
+        <div>
+          <h3>ClassName property:</h3>
+          <form id="attributeForm" name="attributeForm" class="ui form">
+          <table id="attributeTable">
+
+              <label>Background Color:</label>
+              <input type="radio" name="background-color" value="Wheat" id="wheat">Wheat &emsp;
+              <input type="radio" name="background-color" value="Aqua" id="aqua">Aqua &emsp;
+              <input type="radio" name="background-color" value="Silver" id="silver">Silver &emsp;
+              <input type="radio" name="background-color" value="" id="bgColorDefault" checked>Default &emsp;
+          
+            <br>
+
+              <label for="fontSize" id="inlineLabel">Font Size:</label>
+              <select name="font-size" id="fontSize" class="four wide field">
+                <option value="20px">20 px</option>
+                <option value="30px">30 px</option>
+                <option value="40px">40 px</option>
+                <option value="" selected>Default</option>
+              </select>
+
+            <br>
+
+            <label>Font Family:</label>
+            <input type="button" name="font-family" value="Cambria" id="Cambria" class="ui button small">
+            <input type="button" name="font-family" value="Impact" id="Impact" class="ui button small">
+            <input type="button" name="font-family" value="Verdana" id="Verdana" class="ui button small">
+            <input type="button" name="font-family" value="Default" id="fontDefault" class="ui button small">
+
+
+            <br>
+            <input type="button" value="Reset All" onclick="location.reload()" class="ui button small">
+
+            <br><br>
+          </table>
+          </form>
+        </div>
+      </section>
+      <!-- /form section -->
+
+      <!-- instruction section -->
+      <section>
+        <h3>Instructions Field:</h3>
+        <div class="ui styled accordion">
+          <div class="active title">
+            <p><i class="dropdown icon"></i>Instruction:</p>
+          </div>
+          <div class="content">
+            <p>Please enter a <b>10 digit</b> phone number in the textbox. ex: (999) 888-7777.</p>
+          </div>
+        </div>
+      </section><br><br>
+      <!-- /instruction section -->
+
+      <!-- testing section -->
+      <section>
+        <h3>Webpage Format Field: </h3>
+        <div id="sampleText" class="ui segment">
+          <p>Sample Webpage</p>
+          <ul>
+            <li>Sample 1</li>
+            <li>Sample 2</li>
+            <li>Sample 3</li>
+          </ul>
+          <p> Sample Beijing was quick to admonish President Trump and Congress for passing two bills aimed at supporting human rights in Hong Kong.<br>
+          The Chinese foreign ministry said in a statement that the bills will only "strengthen the resolve of the Chinese people,<br>including the Hong Kong people, and raise the sinister intentions and hegemonic nature of the U.S," and promised  vague "countermeasures."<br>Chang said in an email that anything Beijing can do "will hurt itself more than us,<br>and given how close its economy is to the edge of the cliff the regime could end up doing itself in by retaliating."</p>
+          <p>In 1993, the National Center for Supercomputing Applications (NCSA), a unit of the University of Illinois at Urbana-Champaign, released NCSA Mosaic, the first popular graphical Web browser, which played an important part in expanding the growth of the nascent World Wide Web beyond the NeXTSTEP niche where the WorldWideWeb had formed three years earlier. In 1994, a company called Mosaic Communications was founded in Mountain View, California and employed many of the original NCSA Mosaic authors to create Mosaic Netscape. However, it intentionally shared no code with NCSA Mosaic. The internal codename for the company's browser was Mozilla, a portmanteau of "Mosaic and Godzilla".[17] The first version of the Web browser, Mosaic Netscape 0.9, was released in late 1994. Within four months it had already taken three-quarters of the browser market and became the main web browser for the 1990s. To avoid trademark ownership problems with the NCSA, the browser was subsequently renamed Netscape Navigator in the same year, and the company took the name Netscape Communications. Netscape Communications realized that the Web needed to become more dynamic. Marc Andreessen, the founder of the company, believed that HTML needed a "glue language" that was easy to use by Web designers and part-time programmers to assemble components such as images and plugins, where the code could be written directly in the Web page markup.</p>
+        </div>
+      </section>
+      <!-- testing section -->
+
+      </div>
+    </section>
+    <!-- /window section -->
+
+
+    <!-- return -->
+    <div class="ui container">
+      <h2>Return to Homework 4</h2>      
+      <a href="../hw4.html" class="ui button small">Return</a>
+      <br>
+    </div>
+    <!-- /return -->
+
+
+  </main>
+  <!--footer-->
+  <footer>
+    <div class="ui container">
+      <h3>Social Media</h3>
+  
+      <button class="ui circular facebook icon button">
+        <i class="facebook icon"></i>
+      </button>
+      <button class="ui circular twitter icon button">
+        <i class="twitter icon"></i>
+      </button>
+      <button class="ui circular linkedin icon button">
+        <i class="linkedin icon"></i>
+      </button>
+      <button class="ui circular google plus icon button">
+        <i class="google plus icon"></i>
+      </button>
+      <button class="ui circular github black icon button">
+        <i class="github icon"></i>
+      </button><br><br>
+    </div>
+  </footer>
+  <!--/footer-->
+  <script>
+    $('.ui.accordion').accordion();
+  </script>
+</body>
+</html>

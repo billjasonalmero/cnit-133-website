@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homework 4: Part 1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link href="../../styles.css" rel="stylesheet" type="text/css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+
+  <script>
+  $(document).ready(() => {
+      $("#inputPhone").mask("(000) 000-0000"); 
+  });
+
+  function split() {
+    let phoneNumber = document.getElementById("inputPhone").value;
+    let RegEx = /^\((\d{3})\)\s(\d{3})\-(\d{4})$/;
+    let outputError = ("Invalid Phone Number input. Please typed the correct format.");
+
+    if(!RegEx.test(phoneNumber)) {
+      document.getElementById("errorMsg").innerHTML = outputError;
+      document.getElementById("inputPhone").value = "";//inorder to clear the textbox blank
+      $(".outputNumber").text(""); //to clear any previous phoneNumber input
+    }else {
+      document.getElementById("errorMsg").innerHTML = "";//inorder to clear the error display (outputError)
+      //used .split(/^\((\d{3})\)\s(\d{3})\-(\d{4})$/) instead of .split ("") due to not liking the display (ex: AreaC:(123) LineC: 567-8999)
+      let splitPhoneNumber = phoneNumber.split(/^\((\d{3})\)\s(\d{3})\-(\d{4})$/);// or .split(" ");
+      document.getElementById("threeDigitOutput").innerHTML = splitPhoneNumber[1];
+      document.getElementById("sevenDigitOutput").innerHTML = splitPhoneNumber[2] + splitPhoneNumber[3];
+    }
+  }
+  </script>
+</head>
+<body>
+  <br>
+  <main>
+    <!-- window section -->
+    <section class="ui blue secondary segment container">
+      <div class="ui form container">
+      <h2>Homework 4 Part 1: Telephone Number String Split  </h2>
+
+      <!-- telephone form -->
+      <form name="splitForm">
+        <label>Telephone Number</label>
+        <input type="text" id="inputPhone" class="three wide field">
+        <input type="button" value="Split" onclick="split()" id="splitPhone" class="ui button small">
+        <input type="reset" value="Reset" id="reset" onclick="location.reload()" class="ui button small">
+      </form>
+      <br>
+      <!-- /telephone form -->
+
+      <!-- string split section -->
+      <section>
+      <div>
+        <h3>Split Section:</h3>
+        <h4>Area Code: <a id="threeDigitOutput" class="outputNumber"></a></h4>
+        <h4>7 Digit Phone Number: <a id="sevenDigitOutput" class="outputNumber"></a></h4>
+        <h4 id="errorMsg">~Regular Expressions~</h4><br>
+      </div>
+      </section><br>
+      <!-- /string split section -->
+
+
+      <!-- instruction section -->
+      <section>
+        <h3>Instructions Field:</h3>
+        <div class="ui styled accordion">
+          <div class="active title">
+            <p><i class="dropdown icon"></i>Instruction:</p>
+          </div>
+          <div class="content">
+            <p>Please enter a <b>10 digit</b> phone number in the textbox. ex: (999) 888-7777.</p>
+          </div>
+        </div>
+      </section>
+      <!-- /instruction section -->
+      </div>
+    </section>
+    <!-- /window section -->
+
+
+    <!-- return section -->
+    <div class="ui container">
+      <h2>Return to Homework 4</h2>      
+      <a href="../hw4.html" class="ui button small">Return</a>
+      <br>
+    </div>
+    <!-- /return section -->
+
+
+  </main>
+  <!--footer section-->
+  <footer>
+    <div class="ui container">
+      <h3>Social Media</h3>
+  
+      <button class="ui circular facebook icon button">
+        <i class="facebook icon"></i>
+      </button>
+      <button class="ui circular twitter icon button">
+        <i class="twitter icon"></i>
+      </button>
+      <button class="ui circular linkedin icon button">
+        <i class="linkedin icon"></i>
+      </button>
+      <button class="ui circular google plus icon button">
+        <i class="google plus icon"></i>
+      </button>
+      <button class="ui circular github black icon button">
+        <i class="github icon"></i>
+      </button><br><br>
+    </div>
+  </footer>
+  <!--/footer section-->
+  <!-- script in order for the instruction section to work
+  via: https://www.youtube.com/watch?v=ptR42t1R-3g -->
+  <script>
+    $('.ui.accordion').accordion();
+  </script>
+</body>
+</html>
