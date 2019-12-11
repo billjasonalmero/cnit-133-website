@@ -11,6 +11,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
 
+  <style>
+    /* width of the table */
+    #tableResult {
+      width: 55%;
+    }
+
+    /* width of each cell */
+    tr > td {
+      width: 30%;
+    }
+  </style>
   <script>
   $(document).ready(() => {
       $("#inputPhone").mask("(000) 000-0000"); 
@@ -27,10 +38,9 @@
       $(".outputNumber").text(""); //to clear any previous phoneNumber input
     }else {
       document.getElementById("errorMsg").innerHTML = "";//inorder to clear the error display (outputError)
-      //used .split(/^\((\d{3})\)\s(\d{3})\-(\d{4})$/) instead of .split ("") due to not liking the display (ex: AreaC:(123) LineC: 567-8999)
-      let splitPhoneNumber = phoneNumber.split(/^\((\d{3})\)\s(\d{3})\-(\d{4})$/);// or .split(" ");
-      document.getElementById("threeDigitOutput").innerHTML = splitPhoneNumber[1];
-      document.getElementById("sevenDigitOutput").innerHTML = splitPhoneNumber[2] + splitPhoneNumber[3];
+      let splitPhoneNumber = phoneNumber.split(" ");
+      document.getElementById("threeDigitOutput").innerHTML = splitPhoneNumber[0];
+      document.getElementById("sevenDigitOutput").innerHTML = splitPhoneNumber[1];
     }
   }
   </script>
@@ -57,9 +67,20 @@
       <section>
       <div>
         <h3>Split Section:</h3>
-        <h4>Area Code: <a id="threeDigitOutput" class="outputNumber"></a></h4>
-        <h4>7 Digit Phone Number: <a id="sevenDigitOutput" class="outputNumber"></a></h4>
-        <h4 id="errorMsg">~Regular Expressions~</h4><br>
+        <table id="tableResult" class="ui blue celled structured table">
+          <tr>
+            <td><h4>Area Code: <a ></a></h4></td>
+            <td id="threeDigitOutput" class="outputNumber"></td>
+          </tr>
+          
+          <tr>
+            <td><h4>7 Digit Phone Number: <a  class="outputNumber"></a></h4></td>
+            <td id="sevenDigitOutput" class="outputNumber"></td>
+          </tr>
+        </table>
+          
+          <h4 id="errorMsg">~Regular Expressions~</h4><br>
+        
       </div>
       </section><br>
       <!-- /string split section -->

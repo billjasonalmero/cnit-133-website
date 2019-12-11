@@ -1,3 +1,8 @@
+/*
+ * Random js code
+ * 
+ */
+
 //alert("hello"); //to check if the link is correct
 //$("#hello").dialog() //to check if jquery is working
 

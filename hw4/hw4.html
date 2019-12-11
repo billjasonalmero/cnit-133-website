@@ -6,7 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="../styles.css" rel="stylesheet" type="text/css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   <title>Homework 4</title>
+  
+  <script>
+  $(document).ready( () => {
+
+    //homework 1 toggle
+    $("#description1").hide();
+    $("#hwpart1").click( () => {
+      $("#description1").toggle(300);
+    })
+
+    //homework 2 toggle
+    $("#description2").hide();
+    $("#hwpart2").click( () => {
+      $("#description2").toggle(300);
+    })
+    
+    //homework 3 toggle
+    $("#description3").hide();
+    $("#hwpart3").click( () => {
+      $("#description3").toggle(300);
+    })
+  });
+
+  </script>
 </head>
 <body>
   <main class="ui container">
@@ -14,36 +40,36 @@
       <h1>Homework 4: Objects, DOM, and Miscellaneous jQuery</h1>
       <br>
     </div>
-
+  
     <!-- homework part 1 -->
     <section>
       <div>
-        <h2><a href="hw4part1/hw4part1.html">Homework Part 1</a></h2>
+        <h2 id="hwpart1"><a href="#"><i id="image01" class="dropdown icon"></i>Homework Part 1</a></h2>
+        <p id="description1" class="ui segment"><a href="hw4part1/hw4part1.html">Webpage that formats a telephone number ex: (111) 222-3333.<br>The string will split the telephone number into the area code, the first seven digits of the phone number as a token</a></p>
         <br>
       </div>
     </section>
     <!-- /homework part 1 -->
 
-
     <!-- homework part 2 -->
     <section>
       <div>
-        <h2><a href="hw4part2/hw4part2.html">Homework Part 2</a></h2>
+        <h2 id="hwpart2"><a href="#"><i class="dropdown icon"></i>Homework Part 2</a></h2>
+        <p id="description2" class="ui segment"><a href="hw4part2/hw4part2.html">Webpage which allows the user to select a page layout and formattign through the use of the ClassName property.<br>Select the elements (radio buttons, select items, and buttons)</a></p>
         <br>
       </div>
     </section>
     <!-- /homework part 2 -->
 
-
     <!-- homework part 3 -->
     <section>
       <div>
-        <h2><a href="hw4part3/hw3part3.html">Homework Part 3</a></h2>
+        <h2 id="hwpart3"><a href="#"><i class="dropdown icon"></i>Homework Part 3</a></h2>
+        <p id="description3" class="ui segment"><a href="hw4part3/hw4part3.html">Webpage that displays a top navigation bar containing a link to Homework 1, Homework 2, Homework 3<br>When you mouse over or click on this other link , a drop-down menu will be displayed.</a></p>
         <br>
       </div>
     </section>
     <!-- /homework part 3 -->
-
 
     <!-- return -->
     <div class="ui container">
@@ -54,7 +80,6 @@
     <!-- /return -->
   </main>
 
-     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
     <footer>
       <div class="ui container">

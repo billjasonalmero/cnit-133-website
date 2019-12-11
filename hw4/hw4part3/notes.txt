@@ -1,0 +1,2 @@
+used to create the navigation bar: http://cssmenumaker.com/menu/cherry-responsive-menu
+cssmenu dir used as a template
